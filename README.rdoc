@@ -3,26 +3,40 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+1. Git repository
 
-* Ruby version
+        git clone git@github.com:stringwire/web.git stringwire
 
-* System dependencies
+2. Apply schema on databases
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+        bin/rake db:schema:load
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+3. To visit site on http://localhost:3000
+
+        bin/rails
+
+4. To run the full test-suite use the following command:
+
+        bin/rake test;
+
+5. To run the full spec-suite use the following commands:
+
+        bin/rspec spec
+
+6. To test 4 API Calls
+
+        i) GET All Snippets
+          Get http://127.0.0.1:3000/api/v1/codes Content-type: Application/json
+
+
+        ii) GET Specific Snippet
+          Get http://127.0.0.1:3000/api/v1/codes/:id Content-type: Application/json
+
+        iii) Create a Snippet
+          POST http://127.0.0.1:3000/api/v1/codes/create Content-type: Application/json
+          data => { code:{ text: "bla blah", is_private: true} }
+
+        iv) Update a Snippet
+          POST http://127.0.0.1:3000/api/v1/codes/:id/update Content-type: Application/json
+          data => { code: { text: "bla blah", is_private: false} }
