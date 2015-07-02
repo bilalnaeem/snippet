@@ -5,7 +5,7 @@ application up and running.
 
 1. Git repository
 
-        git clone git@github.com:stringwire/web.git stringwire
+        git clone git@github.com:bilalnaeem/snippet.git
 
 2. Apply schema on databases
 

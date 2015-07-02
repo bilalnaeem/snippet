@@ -18,10 +18,10 @@ module Api
     VERSION = "1.1.0"
 
 
-    STRINGWIRE_API_URL = "http://localhost:3000"
-    STRINGWIRE_API_HOSTNAME = "localhost"
-    STRINGWIRE_API_PORT = 3000
-    STRINGWIRE_API_HTTPS = 0
+    SNIPPET_API_URL = "http://localhost:3000"
+    SNIPPET_API_HOSTNAME = "localhost"
+    SNIPPET_API_PORT = 3000
+    SNIPPET_API_HTTPS = 0
 
     class CatchJsonParseErrors
       def initialize(app)
