@@ -36,3 +36,6 @@ application up and running.
         iii) Create a Snippet
           POST http://127.0.0.1:3000/api/v1/codes/create Content-type: Application/json
           data => { code:{ text: "bla blah", is_private: true} }
+
+        iii) Get Snippet show
+          POST http://127.0.0.1:3000/api/v1/codes/:id/:token Content-type: Application/json

@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702152930) do
+ActiveRecord::Schema.define(version: 20150703050317) do
 
   create_table "codes", force: :cascade do |t|
     t.string   "text"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.boolean  "is_private", default: false, null: false
+    t.string   "token"
   end
 
 end

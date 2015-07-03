@@ -4,9 +4,9 @@
       <h2><%= pluralize(@code.errors.count, "error") %> prohibited this code from being saved:</h2>
 
       <ul>
-      <% @code.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @code.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -15,6 +15,12 @@
     <%= f.label :text %><br>
     <%= f.text_field :text %>
   </div>
+
+  <div class="field">
+    <%= f.label :is_private %><br>
+    <%= f.check_box :is_private %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

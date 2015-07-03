@@ -18,10 +18,10 @@ class CodesControllerTest < ActionController::TestCase
 
   test "should create code" do
     assert_difference('Code.count') do
-      post :create, code: { text: @code.text }
+      post :create, code: { text: @code.text, is_private: false }
     end
 
-    assert_redirected_to code_path(assigns(:code))
+    assert_redirected_to codes_path
   end
 
   test "should show code" do

@@ -7,7 +7,7 @@ RSpec.describe Api::V1::CodesController, type: :controller do
 
     # Examples
     context "when success" do
-      it "returns all codes" do
+      it "returns all public codes" do
         get :index, format: "json"
         expect(response).to be_success
         expect(items).to eq assigns(:codes)
@@ -16,14 +16,27 @@ RSpec.describe Api::V1::CodesController, type: :controller do
   end
 
   describe "GET #show" do
-    let!(:item) { create model }
+    subject(:public_code) { create :code, is_private: false, token: nil }
 
     # Examples
     context "when success" do
-      it "returns code" do
-        get :show, id: item.id, format: "json"
+      it "returns public code" do
+        get :show, id: public_code.id, format: "json"
         expect(response).to be_success
-        expect(item).to eq assigns(:code)
+        expect(public_code).to eq assigns(:code)
+      end
+    end
+  end
+
+  describe "GET #secret_show" do
+    subject(:secret_code) { create :code, is_private: true, token: SecureRandom.hex(32) }
+
+    # Examples
+    context "when success" do
+      it "returns private code" do
+        get :secret_show, id: secret_code.id, token: secret_code.token, format: "json"
+        expect(response).to be_success
+        expect(secret_code).to eq assigns(:code)
       end
     end
   end

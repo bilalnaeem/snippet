@@ -19,6 +19,11 @@ class CodeSerializer < ActiveModel::Serializer
 
   def attributes
     hash = super
+    if object.is_private
+      hash['secret_show_url'] = Rails.application.routes.url_helpers.api_v1_secret_code_url(id: object.id,
+                                                                                          token: object.token,
+                                                                                          host: 'http://localhost:3000' )
+    end
     hash
   end
 end

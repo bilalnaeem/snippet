@@ -46,7 +46,6 @@ gem "database_cleaner" # Strategies for cleaning databases
 
 group :development, :test do
   gem "rspec", ">= 3.3"
-  gem "byebug" # Call "byebug" anywhere in the code to stop execution and get a debugger console
   gem "web-console", "~> 2.0" # Access an IRB console on exception pages or by using <%= console %> in views
   gem "rspec_api_documentation", github: "zipmark/rspec_api_documentation", require: false # Automatically generate API documentation from RSpec examples
   gem "bullet" # Check for N+1 queries. https://github.com/flyerhzm/bullet

@@ -4,11 +4,16 @@ Rails.application.routes.draw do
     namespace :v1 do
       get "codes", to: "codes#index"
       get "codes/:id", to: "codes#show"
+      get "codes/:id/:token", to: "codes#secret_show", as: :secret_code
       post "codes/create", to: "codes#create"
     end
   end
 
-  resources :codes, only: [:index, :new, :create, :show]
+  resources :codes, only: [:index, :new, :create, :show] do
+    member do
+      get '/:token' => 'codes#secret_show'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
