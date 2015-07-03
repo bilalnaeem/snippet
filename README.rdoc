@@ -36,7 +36,3 @@ application up and running.
         iii) Create a Snippet
           POST http://127.0.0.1:3000/api/v1/codes/create Content-type: Application/json
           data => { code:{ text: "bla blah", is_private: true} }
-
-        iv) Update a Snippet
-          POST http://127.0.0.1:3000/api/v1/codes/:id/update Content-type: Application/json
-          data => { code: { text: "bla blah", is_private: false} }

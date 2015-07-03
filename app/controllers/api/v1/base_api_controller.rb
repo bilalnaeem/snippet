@@ -7,10 +7,10 @@ module Api
     ]
 
     class Api::V1::BaseApiController < ActionController::Base
-      # rescue_from Exception do |e|
-      #   Rails.logger.error e.message
-      #   error(E_API, e.message)
-      # end
+      rescue_from Exception do |e|
+        Rails.logger.error e.message
+        error(E_API, e.message)
+      end
 
       respond_to :json
       before_action :validate_json

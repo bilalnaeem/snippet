@@ -5,7 +5,6 @@ Rails.application.routes.draw do
       get "codes", to: "codes#index"
       get "codes/:id", to: "codes#show"
       post "codes/create", to: "codes#create"
-      put "codes/:id/update", to: "codes#update"
     end
   end
 

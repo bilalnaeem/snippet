@@ -2,7 +2,7 @@ module Api
   module V1
     class CodesController < BaseApiController
       respond_to :json
-      before_action :ensure_code_found!, only: [:show, :update]
+      before_action :ensure_code_found!, only: [:show]
       skip_before_action :validate_json, only: [:index, :show]
 
       # GET /codes.json
@@ -24,16 +24,6 @@ module Api
           return error(E_INTERNAL, e.message)
         end
       end
-
-      def update
-        begin
-          @code.update!(code_params)
-          return success(@code)
-        rescue *RecoverableExceptions => e
-          return error(E_INTERNAL, e.message)
-        end
-      end
-
 
       private
         # Use callbacks to share common setup or constraints between actions.
